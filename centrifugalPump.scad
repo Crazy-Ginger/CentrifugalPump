@@ -3,21 +3,34 @@ $fs = 0.01;
 
 module basewall(height=20, radius=42)
 {
-    elipse = 1.2* radius;
+    
     color("grey")linear_extrude(height)union()
     {
         color("grey")circle(radius);
+        elipse = 1.2*radius;
         translate([0,elipse-radius])
         {  
             difference()
             {
-            //resize([86, 100])
-                color("green")resize([radius*2, elipse*2])circle(r=radius+1);
-                color("red")translate([0,-((elipse+2))])square([radius+2, 2*(elipse+2)]);
+                //elipse type:
+//                color("green")resize([radius*2, elipse*2])circle(r=radius+1);
+//                color("red")translate([0,-((elipse+2))])square([radius+2, 2*(elipse+2)]);
+                
+                //spiral type:
+                spiral = 
+                [
+                    for (i=[180:360])[
+                            (0.3 + 0.16*i)*sin(i)*1.1,
+                            (0.3 + 0.16*i)*cos(i)*1.5
+                        ]
+                ];
+                color("green")polygon(concat(spiral));;
             }
         }
     }
 }
+//
+
 module base (height = 20, radius = 42, thickness = 1)
 {
     difference()
@@ -26,5 +39,8 @@ module base (height = 20, radius = 42, thickness = 1)
         translate([0, 0, thickness])color("blue")basewall(height, radius-thickness);
     }
 }
+//
+radius=42;    height=12;    thickness=1;
 
-base(20, 42, 1);
+translate([0, 0, thickness + 2])color("orange")linear_extrude(2)circle(radius - 2);
+base(height, radius, thickness);

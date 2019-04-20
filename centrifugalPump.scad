@@ -13,18 +13,18 @@ module basewall(height=20, radius=42)
             difference()
             {
                 //elipse type:
-//                color("green")resize([radius*2, elipse*2])circle(r=radius+1);
-//                color("red")translate([0,-((elipse+2))])square([radius+2, 2*(elipse+2)]);
+                color("green")resize([radius*2, elipse*2])circle(r=radius+1);
+                color("red")translate([0,-((elipse+2))])square([radius+2, 2*(elipse+2)]);
                 
                 //spiral type:
-                spiral = 
-                [
-                    for (i=[180:360])[
-                            (0.3 + 0.16*i)*sin(i)*1.1,
-                            (0.3 + 0.16*i)*cos(i)*1.5
-                        ]
-                ];
-                color("green")polygon(concat(spiral));;
+//                spiral = 
+//                [
+//                    for (i=[180:360])[
+//                            (0.3 + 0.16*i)*sin(i)*1.1,
+//                            (0.3 + 0.14*i)*cos(i)*1.2
+//                        ]
+//                ];
+//                color("green")polygon(concat(spiral));;
             }
         }
     }

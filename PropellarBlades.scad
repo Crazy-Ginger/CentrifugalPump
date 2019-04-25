@@ -7,18 +7,18 @@ prop_dist = 3.8; //propeller distance travelled
 blade_radius = prop_dia*inch_mm/2;
 pitch_angle = atan(prop_dist*inch_mm/blade_radius);
 */
-$fa = 10;
-$fs = 0.1;
+$fa = 20;
+$fs = 0.3;
 
 //size of blades
-blade_radius = 50;
+blade_radius = 10;
 //Converting pitch to twist angle for linear extrude
-pitch_angle = 30;
+pitch_angle = 20;
 
 // Curvature of blades, selected straight edge or use ARC module 
 blade_arch = blade_radius/11; 
 //1 Curve blades, 0 for straight edge
-apply_curvature = 1;
+apply_curvature = 0;
 
 echo("Blade Radius", blade_radius);
 echo("Pitch Angle", pitch_angle);
